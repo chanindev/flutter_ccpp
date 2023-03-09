@@ -18,6 +18,9 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        flatDir {
+            dirs 'libs' //this way we can find the .aar file in libs folder
+        } 
     }
 }
 
@@ -40,7 +43,9 @@ android {
 }
 
 dependencies {
-    implementation files("libs/pgw_sdk.aar")
+  //  implementation files("libs/pgw_sdk.aar")
     
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    api(name: 'pgw_sdk', ext: 'aar')
 }
